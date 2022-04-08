@@ -1,5 +1,6 @@
 # Examen_Mercadolibre
 
+# Instrucciones de cómo ejecutar el programa
 El objetivo del ejercicio es detectar en una matiz NxN si el ADN corresponde a un humano o a un mutante. El ADN es de un mutante si posee más de una secuencia de 4 letras iguales sea de forma horizontal, vertical u oblicua.
 
 Las letras de los String solo pueden ser (A, T, C, G)
@@ -17,3 +18,7 @@ Luego de forma vertical donde utilicé la función mirror para voltear la matriz
 Luego para la parte oblicua…
 
 Ciclo Falso y verdadero
+
+
+# URL de la API
+https://jcab6ai39i.execute-api.us-east-1.amazonaws.com/prod
