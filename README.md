@@ -7,8 +7,8 @@ A continuación, se describe la lógica de programación para realizar la evalua
 
 Búsqueda de secuencias Horizontales: Se recorre cada fila de la matriz con una ventana móvil de tamaño 4. Cada vez que encuentra una ventana con todas las letras iguales aumenta en 1 el contador de número de secuencias iguales.
 Búsqueda de secuencias Verticales: Se hace una transpuesta de la matriz original para convertir las columnas en filas y se realiza el mismo proceso de evaluación de secuencias horizontales descrito arriba.
-Búsqueda de secuencias Oblicuas (de derecha a izquierda): Se extraen las diagonales de la matriz y se realiza la evaluación a través de la ventana móvil de tamaño 4 en búsqueda de secuencias de una misma letra aumentando el contador cuando esto ocurre.
-Búsqueda de secuencias Oblicuas (de izquierda a derecha): Se invierten de izquierda a derecha el orden de las filas de la matriz original (espejo) y se realiza el mismo procedimiento de evaluación que en el caso anterior.
+Búsqueda de secuencias Oblicuas (de izquierda a derecha): Se extraen las diagonales de la matriz y se realiza la evaluación a través de la ventana móvil de tamaño 4 en búsqueda de secuencias de una misma letra aumentando el contador cuando esto ocurre.
+Búsqueda de secuencias Oblicuas (de derecha a izquierda): Se invierten de izquierda a derecha el orden de las filas de la matriz original (espejo) y se realiza el mismo procedimiento de evaluación que en el caso anterior.
 
 Finalmente, cuando el contador de secuencias alcanza el valor de 2 retorna TRUE (Mutante) si no alcanza es límite retorna FALSE (Humano)
 
