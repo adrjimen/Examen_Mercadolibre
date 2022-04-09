@@ -1,24 +1,29 @@
 # Examen_Mercadolibre
 
 # Instrucciones de cómo ejecutar el programa
-El objetivo del ejercicio es detectar en una matiz NxN si el ADN corresponde a un humano o a un mutante. El ADN es de un mutante si posee más de una secuencia de 4 letras iguales sea de forma horizontal, vertical u oblicua.
+El objetivo del ejercicio es detectar en una matiz NxN con las letras (A, T, C, G) si el ADN corresponde a un humano o a un mutante. El ADN es de un mutante si posee más de una secuencia de 4 letras iguales sea de forma horizontal, vertical u oblicua.
 
-Las letras de los String solo pueden ser (A, T, C, G)
+El lenguaje de desarrollo en el cual se realizó la programación es PYTHON y se utilizó AWS para alojar la API REST
 
-Desarrollo del código
+Dentro de AWS utilizamos la funcionalidad de LAMBDA para construir en python toda la lógica que no solo evalúa las matrices para concluir si son o no mutantes, sino también toda la interacción con los web services (/mutant y /stats) a través de la API REST. Toda esta integracion la posibilita la funcionalidad API GATEWAY de AWS.
 
-Hacía mucho tiempo no desarrollaba, prácticamente desde la universidad y practica, estamos hablando de varios añitos, en mi carrera profesional pude desarrollar otras hábiilidades.
+Para almacenar los ADNs a evaluar y sus respectivos veredictos alrededor de si son mutantes o humanos utilizamos DYNAMOBD que es una funcionalidad de bases de datos dentro de AWS que posibilita una fácil integración con las otras funciones LAMBDA y API GATEWAY mencionadas arriba.
 
-Realizando varias validaciones en internet y buscando cuál sería la mejor opción de lenguaje a utilizar para realizar el desarrollo del Challenge seleccioné Phyton, ya que para el poco tiempo este podría ser mi mejor opción para aprender desde cero.
+Para Interactuar con la API y utilizar sus funcionalidad podemos utilizar POSTMAN para hacer los POST a traves del servicio "/mutant" de los ADNs a evaluar en formato JSON, así:
 
-Para realizar el ejercicio primero desarrollé la primera parte que era encontrar el ADN de manera horizontal, para esto utilicé la forma de leerla a traves de una ventana movil de 4.
+{
+“DNA”: ["ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"]
+}
 
-Luego de forma vertical donde utilicé la función mirror para voltear la matriz
+De este modo este registro queda guardado en la base de datos DYNAMODB. De igual manera, POSTMAN nos permite ver la respuesta del servidor, si el ADN es de un mutante nos devuelve TRUE y el código 200 (ok); si por el contrario es de un humano nos retorna FALSE y el código 403 (forbidden)
 
-Luego para la parte oblicua…
+Para ver las estadística de los diferentes ADNs evaluados y alojados en la base de datos utilizamos el servicio "/stats" a través de un GET y obtenemos una respuesta en formato JSON como podemos ver a continuación:
 
-Ciclo Falso y verdadero
-
+{
+    "count_mutant_dna": 2,
+    "count_human_dna": 3,
+    "ratio": 0.67
+}
 
 # URL de la API
 https://jcab6ai39i.execute-api.us-east-1.amazonaws.com/prod
